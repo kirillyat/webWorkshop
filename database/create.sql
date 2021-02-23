@@ -7,6 +7,7 @@ CREATE TABLE people (
 	death_date Date NULL,	-- Дата смерти | NULL
 	description String,		-- Описание
 							-- TODO: Места проживания
+    
 	PRIMARY KEY(id)
 );
 
