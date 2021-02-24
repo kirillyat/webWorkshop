@@ -24,6 +24,3 @@ CREATE TABLE marriage (
 	FOREIGN KEY(husband_id)
 	REFERENCES people(id),
 );
-
-
-
