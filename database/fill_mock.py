@@ -5,7 +5,7 @@ from mimesis.builtins import RussiaSpecProvider
 
 
 p = open("people.csv",  'w')
-m = open("merrige.csv", 'w')
+m = open("marrige.csv", 'w')
 
 #Objects for mimesis
 person = Person(locales.RU)
@@ -24,38 +24,29 @@ def makeWomanName():
             ru.patronymic(gender=Gender.FEMALE))
 
 
-'''
-id UInt64,              -- Индефикатор
-name String,            -- ФИО
-mother_id UInt64,       -- ID Матери
-father_id UInt64,       -- ID Отца
-birth_date Date,        -- Дата рождения
-death_date Date NULL,   -- Дата смерти | NULL
-description String,     -- Описание
-address String,         -- Места проживания
-'''
+
 def makePopulation(f, n):
     for i in range(0,n,2):
         S = str(i) + '|' + makeManName() + '|'
         S+= str(randint(0,i)) + '|'+ str(randint(0,i)) + '|'
-        S+= str(g.datetime.date()) + '|' + '|'
-        S+= ru.generate_sentence() + '|'
+        S+= str(g.datetime.date()) + '|\\N|'
+        S+= ru.generate_sentence() + '"|'
         S+= a.address()+'\n'
         f.write(S)
         S = str(i+1) + '|' + makeWomanName() + '|'
         S+= str(randint(0,i)) + '|'+ str(randint(0,i)) + '|'
-        S+= str(g.datetime.date()) + '|' + '|'
-        S+= ru.generate_sentence() + '|'
+        S+= str(g.datetime.date()) + '|\\N|'
+        S+= ru.generate_sentence() + '"|'
         S+= a.address()+'\n'
         f.write(S)
 
 def makeMarrige(f, n):
     for i in range(n):
-        S= str(randint(0,n)) + '|'+ str(randint(0,n)) + '|'
+        S= str(randint(0,n-1)) + '|'+ str(randint(0,n-1)) + '|'
         S+= str(g.datetime.date()) + '|' + str(g.datetime.date()) +'\n'
         f.write(S)
 
-n = 100
+n = 1000
 makePopulation(p, n)
 makeMarrige(m, n)
 

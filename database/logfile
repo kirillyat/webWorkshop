@@ -1,0 +1,155 @@
+2021-03-23 22:59:08.201 MSK [20239] LOG:  starting PostgreSQL 13.2 on x86_64-apple-darwin20.3.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-03-23 22:59:08.201 MSK [20239] LOG:  listening on IPv6 address "::1", port 5432
+2021-03-23 22:59:08.201 MSK [20239] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-03-23 22:59:08.202 MSK [20239] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2021-03-23 22:59:08.206 MSK [20240] LOG:  database system was shut down at 2021-03-23 22:58:57 MSK
+2021-03-23 22:59:08.209 MSK [20239] LOG:  database system is ready to accept connections
+2021-03-23 23:02:00.848 MSK [20297] ERROR:  type "uint64" does not exist at character 30
+2021-03-23 23:02:00.848 MSK [20297] STATEMENT:  CREATE TABLE people (
+	    id UInt64,              -- Индефикатор
+	    name String,            -- ФИО
+	    mother_id UInt64        -- ID Матери
+	    REFERENCES people(id),
+	    father_id UInt64        -- ID Отца
+	    REFERENCES people(id),
+	    birth_date Date,        -- Дата рождения
+	    death_date Date NULL,   -- Дата смерти | NULL
+	    description String,     -- Описание
+	    address String,         -- Места проживания
+	
+	    PRIMARY KEY(id)
+	)
+2021-03-23 23:02:57.387 MSK [20297] ERROR:  type "uint64" does not exist at character 30
+2021-03-23 23:02:57.387 MSK [20297] STATEMENT:  CREATE TABLE people (
+	    id UInt64,              -- Индефикатор
+	    name String,            -- ФИО
+	    mother_id UInt64        -- ID Матери
+	    REFERENCES people(id),
+	    father_id UInt64        -- ID Отца
+	    REFERENCES people(id),
+	    birth_date Date,        -- Дата рождения
+	    death_date Date NULL,   -- Дата смерти | NULL
+	    description String,     -- Описание
+	    address String,         -- Места проживания
+	
+	    PRIMARY KEY(id)
+	)
+2021-03-23 23:02:58.432 MSK [20297] ERROR:  type "uint64" does not exist at character 30
+2021-03-23 23:02:58.432 MSK [20297] STATEMENT:  CREATE TABLE people (
+	    id UInt64,              -- Индефикатор
+	    name String,            -- ФИО
+	    mother_id UInt64        -- ID Матери
+	    REFERENCES people(id),
+	    father_id UInt64        -- ID Отца
+	    REFERENCES people(id),
+	    birth_date Date,        -- Дата рождения
+	    death_date Date NULL,   -- Дата смерти | NULL
+	    description String,     -- Описание
+	    address String,         -- Места проживания
+	
+	    PRIMARY KEY(id)
+	)
+2021-03-23 23:05:21.783 MSK [20297] ERROR:  type "string" does not exist at character 76
+2021-03-23 23:05:21.783 MSK [20297] STATEMENT:  CREATE TABLE people (
+	    id integer,              -- Индефикатор
+	    name String,            -- ФИО
+	    mother_id integer        -- ID Матери
+	    REFERENCES people(id),
+	    father_id integer        -- ID Отца
+	    REFERENCES people(id),
+	    birth_date Date,        -- Дата рождения
+	    death_date Date NULL,   -- Дата смерти | NULL
+	    description integer,     -- Описание
+	    address integer,         -- Места проживания
+	
+	    PRIMARY KEY(id)
+	)
+2021-03-23 23:07:04.392 MSK [20297] ERROR:  syntax error at or near ")" at character 333
+2021-03-23 23:07:04.392 MSK [20297] STATEMENT:  CREATE TABLE marriage (
+	    wife_id integer,         -- ID Супрги
+	    husband_id integer,      -- ID Супруга
+	    marriage_date Date,     -- Дата заключения брака
+	    divorce_date Date NULL, -- Дата расторжения брака | NULL
+	
+	    FOREIGN KEY(wife_id)
+	    REFERENCES people(id),
+	
+	    FOREIGN KEY(husband_id)
+	    REFERENCES people(id),
+	)
+2021-03-23 23:07:10.159 MSK [20297] ERROR:  syntax error at or near "," at character 249
+2021-03-23 23:07:10.159 MSK [20297] STATEMENT:  CREATE TABLE marriage (
+	    wife_id integer,         -- ID Супрги
+	    husband_id integer,      -- ID Супруга
+	    marriage_date Date,     -- Дата заключения брака
+	    divorce_date Date NULL, -- Дата расторжения брака | NULL
+	
+	    FOREIGN KEY(wife_id),
+	    REFERENCES people(id),
+	
+	    FOREIGN KEY(husband_id)
+	    REFERENCES people(id),
+	)
+2021-03-23 23:07:47.467 MSK [20297] ERROR:  could not open file "people.csv" for reading: No such file or directory
+2021-03-23 23:07:47.467 MSK [20297] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2021-03-23 23:07:47.467 MSK [20297] STATEMENT:  COPY people FROM 'people.csv' DELIMITER '|'
+2021-03-23 23:08:26.375 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:08:26.375 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:08:26.375 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:08:51.371 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:08:51.371 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:08:51.371 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:10:33.834 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:10:33.834 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:10:33.834 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:10:41.023 MSK [20297] ERROR:  relation "merrige" does not exist
+2021-03-23 23:10:41.023 MSK [20297] STATEMENT:  COPY merrige FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:14:21.490 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:14:21.490 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:14:21.490 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:14:58.069 MSK [20297] ERROR:  relation "people" already exists
+2021-03-23 23:14:58.069 MSK [20297] STATEMENT:  CREATE TABLE people (
+	    id integer,              -- Индефикатор
+	    name varchar(50),            -- ФИО
+	    mother_id integer        -- ID Матери
+	    REFERENCES people(id),
+	    father_id integer        -- ID Отца
+	    REFERENCES people(id),
+	    birth_date Date,        -- Дата рождения
+	    death_date Date NULL,   -- Дата смерти | NULL
+	    description text,     -- Описание
+	    address integer,         -- Места проживания
+	
+	    PRIMARY KEY(id)
+	)
+2021-03-23 23:15:02.471 MSK [20297] ERROR:  cannot drop table people because other objects depend on it
+2021-03-23 23:15:02.471 MSK [20297] DETAIL:  constraint marriage_wife_id_fkey on table marriage depends on table people
+	constraint marriage_husband_id_fkey on table marriage depends on table people
+2021-03-23 23:15:02.471 MSK [20297] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2021-03-23 23:15:02.471 MSK [20297] STATEMENT:  DROP TABLE IF EXISTS people
+2021-03-23 23:15:14.405 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:15:14.405 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:15:14.405 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:15:18.385 MSK [20297] ERROR:  relation "merrige" does not exist
+2021-03-23 23:15:18.385 MSK [20297] STATEMENT:  COPY merrige FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:15:31.921 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_wife_id_fkey"
+2021-03-23 23:15:31.921 MSK [20297] DETAIL:  Key (wife_id)=(82) is not present in table "people".
+2021-03-23 23:15:31.921 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:15:39.054 MSK [20297] ERROR:  invalid input syntax for type date: ""
+2021-03-23 23:15:39.054 MSK [20297] CONTEXT:  COPY people, line 1, column death_date: ""
+2021-03-23 23:15:39.054 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:21:13.011 MSK [20297] ERROR:  invalid input syntax for type integer: "Аллея Внуковская 4-я 1057"
+2021-03-23 23:21:13.011 MSK [20297] CONTEXT:  COPY people, line 1, column address: "Аллея Внуковская 4-я 1057"
+2021-03-23 23:21:13.011 MSK [20297] STATEMENT:  COPY people FROM '/Users/kirillyat/Developer/webWorkshop/database/people.csv' DELIMITER '|'
+2021-03-23 23:22:40.924 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_wife_id_fkey"
+2021-03-23 23:22:40.924 MSK [20297] DETAIL:  Key (wife_id)=(100) is not present in table "people".
+2021-03-23 23:22:40.924 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:26:15.395 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_husband_id_fkey"
+2021-03-23 23:26:15.395 MSK [20297] DETAIL:  Key (husband_id)=(1000) is not present in table "people".
+2021-03-23 23:26:15.395 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:27:54.053 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_wife_id_fkey"
+2021-03-23 23:27:54.053 MSK [20297] DETAIL:  Key (wife_id)=(1000) is not present in table "people".
+2021-03-23 23:27:54.053 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-23 23:27:56.650 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_wife_id_fkey"
+2021-03-23 23:27:56.650 MSK [20297] DETAIL:  Key (wife_id)=(1000) is not present in table "people".
+2021-03-23 23:27:56.650 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
