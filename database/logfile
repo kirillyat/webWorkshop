@@ -153,3 +153,5 @@
 2021-03-23 23:27:56.650 MSK [20297] ERROR:  insert or update on table "marriage" violates foreign key constraint "marriage_wife_id_fkey"
 2021-03-23 23:27:56.650 MSK [20297] DETAIL:  Key (wife_id)=(1000) is not present in table "people".
 2021-03-23 23:27:56.650 MSK [20297] STATEMENT:  COPY marriage FROM '/Users/kirillyat/Developer/webWorkshop/database/merrige.csv' DELIMITER '|'
+2021-03-30 20:58:13.611 MSK [57598] ERROR:  syntax error at or near "ffrom" at character 10
+2021-03-30 20:58:13.611 MSK [57598] STATEMENT:  select * ffrom people

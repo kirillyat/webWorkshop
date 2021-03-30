@@ -42,7 +42,7 @@ public class marriageDAO {
         session.close();
     }
 
-    public List<Orders> loadAll() {
+    public List<marriage> loadAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Orders> criteria = builder.createQuery(marriage.class);
@@ -51,17 +51,11 @@ public class marriageDAO {
         session.close();
         return data;
     }
-// todo
-    public List<Orders> selectUnreturnedOrders() {
+
+    public List<marriage> selectSucsessMarriage() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Query<Orders> query = session.createQuery("FROM Orders WHERE order_returned is null");
+        Query<Orders> query = session.createQuery("FROM marriage WHERE divorce_date is null");
         return query.getResultList();
     }
 
-    public List<Orders> selectOrdersByStatus(boolean order_is_paid) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Query<Orders> query = session.createQuery("FROM Orders WHERE order_is_paid = :param", Orders.class)
-                .setParameter("param", order_is_paid);
-        return query.getResultList();
-    }
 }

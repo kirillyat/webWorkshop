@@ -1,64 +1,65 @@
-package classes;
+package entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table(name = "clients")
-public class Clients {
+@Table(name = "marriage")
+public class marriage {
 
-    private int client_id;
-    private String client_name;
-    private String client_phone;
+    private int wife_id;
+    private int husband_id;
+    private Date marriage_date;
+    private Date divorce_date;
 
-    private List<Orders> client_orders;
 
-    public Clients() {
+    public marriage() {
     }
 
-    public Clients(int client_id, String client_name, String client_phone, List<Orders> client_orders) {
-        this.client_id = client_id;
-        this.client_name = client_name;
-        this.client_phone = client_phone;
-        this.client_orders = client_orders;
+    public marriage(int wife_id, int husband_id, Date marriage_date, Date divorce_date) {
+        this.wife_id = wife_id;
+        this.husband_id = husband_id;
+        this.marriage_date = marriage_date;
+        this.divorce_date = divorce_date;
     }
 
-    @Id
-    @Column(name = "client_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getClient_id() {
-        return client_id;
+
+    @Column(name = "wife_id")
+    public int get_wife_id() {
+        return wife_id;
     }
 
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
+    public void set_wife_id(int wife_id) {
+        this.wife_id = wife_id;
     }
 
-    @Column(name = "client_name")
-    public String getClient_name() {
-        return client_name;
+    @Column(name = "husband_id")
+    public int get_husband_id() {
+        return husband_id;
     }
 
-    public void setClient_name(String client_name) {
-        this.client_name = client_name;
+    public void set_husband_id(int husband_id) {
+        this.husband_id = husband_id;
     }
 
-    @Column(name = "client_phone")
-    public String getClient_phone() {
-        return client_phone;
+    @Column(name = "marriage_date")
+    public Date get_marriage_date() {
+        return marriage_date;
     }
 
-    public void setClient_phone(String client_phone) {
-        this.client_phone = client_phone;
+    public void set_marriage_date(Date marriage_date) {
+        this.marriage_date = marriage_date;
     }
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    public List<Orders> getClient_orders() {
-        return client_orders;
+
+    @Column(name = "divorce_date")
+    public Date get_divorce_date() {
+        return divorce_date;
     }
 
-    public void setClient_orders(List<Orders> client_orders) {
-        this.client_orders = client_orders;
+    public void set_divorce_date(Date divorce_date) {
+        this.divorce_date = divorce_date;
     }
 }

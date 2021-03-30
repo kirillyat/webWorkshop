@@ -13,8 +13,8 @@ public class people {
     private String name;
     private int mother_id;
     private int father_id;
-    private java.sql.Date birth_date;
-    private java.sql.Date death_date;
+    private Date birth_date;
+    private Date death_date;
     private String description;
     private String address;
 
@@ -22,7 +22,7 @@ public class people {
     public people() {
     }
 
-    public people(int id, String name, int mother_id, int father_id, java.sql.Date birth_date, java.sql.Date death_date, String description, String address) {
+    public people(int id, String name, int mother_id, int father_id, Date birth_date, Date death_date, String description, String address) {
         this.id = id;
         this.name = name;
         this.mother_id = mother_id;
@@ -33,6 +33,7 @@ public class people {
         this.address = address;
     }
 
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,34 +41,78 @@ public class people {
         return id;
     }
 
-    public void setClient_id(int id) {
+    public void setHuman_id(int id) {
         this.id = id;
     }
+
 
     @Column(name = "name")
     public String get_name() {
         return name;
     }
 
-    public void setClient_name(String name) {
+    public void setHuman_name(String name) {
         this.name = name;
     }
 
-    @Column(name = "client_phone")
-    public String getClient_phone() {
-        return client_phone;
+
+    @Column(name = "mother_id")
+    public int get_mother_id() {
+        return mother_id;
     }
 
-    public void setClient_phone(String client_phone) {
-        this.client_phone = client_phone;
+    public void set_mother_id(int mother_id) {
+        this.mother_id = mother_id;
     }
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    public List<Orders> getClient_orders() {
-        return client_orders;
+
+    @Column(name = "father_id")
+    public int get_father_id() {
+        return father_id;
     }
 
-    public void setClient_orders(List<Orders> client_orders) {
-        this.client_orders = client_orders;
+    public void set_father_id(int father_id) {
+        this.father_id = father_id;
     }
+
+
+    @Column(name = "birth_date")
+    public Date get_birth_date() {
+        return birth_date;
+    }
+
+    public void set_birth_date(java.sql.Date birth_date) {
+        this.birth_date = birth_date;
+    }
+
+
+    @Column(name = "death_date")
+    public Date get_death_date() {
+        return death_date;
+    }
+
+    public void set_death_date(java.sql.Date death_date) {
+        this.death_date = death_date;
+    }
+
+
+    @Column(name = "description")
+    public String get_description() {
+        return description;
+    }
+
+    public void set_description(String description) {
+        this.description = description;
+    }
+
+
+    @Column(name = "address")
+    public String get_address() {
+        return address;
+    }
+
+    public void set_address(String address) {
+        this.address = address;
+    }
+
 }
