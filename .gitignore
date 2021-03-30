@@ -1,7 +1,7 @@
 # macOS dir file
 .DS_Store
-database/postgres/base/*
-database/postgres/global/*
+database/postgres/*
+
 */.vscode
 
 # Compiled class file

@@ -1,7 +1,7 @@
 package utils;
 
-import classes.people;
-import classes.marriage;
+import entities.people;
+import entities.marriage;
 
 
 import org.hibernate.SessionFactory;
@@ -19,7 +19,6 @@ public class HibernateSessionFactoryUtil {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(people.class);
                 configuration.addAnnotatedClass(marriage.class);
-
                 StandardServiceRegistryBuilder builder =
                         new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());

@@ -1,4 +1,4 @@
-package classes;
+package entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class people {
     public people() {
     }
 
-    public Clients(int id, String name, int mother_id, int father_id, java.sql.Date birth_date, java.sql.Date death_date, String description, String address) {
+    public people(int id, String name, int mother_id, int father_id, java.sql.Date birth_date, java.sql.Date death_date, String description, String address) {
         this.id = id;
         this.name = name;
         this.mother_id = mother_id;
