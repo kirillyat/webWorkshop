@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="webWorkshop" target="8" />
+      <module name="webWorkshop" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>
