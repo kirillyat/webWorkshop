@@ -24,7 +24,7 @@ public class peopleService {
         people_DAO_inst.delete(human);
     }
 
-    public List<people> loadAlPeople() {
+    public List<people> loadAllPeople() {
         return people_DAO_inst.loadAll();
     }
 }
