@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add human</title>
+</head>
+<body>
+
+<form action="/peopleSave" method="post">
+    <input type="hidden" name="id" th:value="${human.getId()}"/>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required th:value="${human.getName()}"><br><br>
+
+    <label for="name">Mother:</label>
+    <input type="text" id="mother" name="mother" required th:value="${human.getMother_id()}"><br><br>
+
+    <label for="name">Father:</label>
+    <input type="text" id="father" name="father" required th:value="${human.getFather_id()}"><br><br>
+
+
+
+    <label for="name">Birth date:</label>
+    <input type="text" id="birth_date" name="birth_date" required th:value="${human.getBirth_date()}"><br><br>
+
+    <label for="name">Death date:</label>
+    <input type="text" id="death_date" name="death_date" required th:value="${human.getDeath_date()}"><br><br>
+
+
+
+
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required th:value="${human.getAddress()}"><br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required th:value="${human.getDescription()}"><br><br>
+
+    <input id="submit_button" type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

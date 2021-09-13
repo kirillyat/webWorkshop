@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People list</title>
+    <style>
+        body{
+            background-color: #3366CC;
+        }
+    </style>
+</head>
+<body>
+<p><a href="/">Main Page</a></p>
+
+<form method="post" action="/humanAdd">
+    <button id="humanAdd_button" type="submit">Add human</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th scope="col"> Human </th>
+        <th scope="col"> Name </th>
+        <th scope="col"> Mother </th>
+        <th scope="col"> Father </th>
+        <th scope="col"> Birth date </th>
+        <th scope="col"> Death date </th>
+        <th scope="col"> Description </th>
+        <th scope="col"> Address </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="human : ${peopleList}">
+        <td><a th:href="'/human?id=' + ${human.getId()}"> <span
+                th:text="${human.getId()}"> </span> </a></td>
+        <td><span th:text="${human.getName()}"> </span></td>
+        <td><span th:text="${human.getMother_id()}"> </span></td>
+        <td><span th:text="${human.getFather_id()}"> </span></td>
+        <td><span th:text="${human.getBirth_date()}"> </span></td>
+        <td><span th:text="${human.getDeath_date()}"> </span></td>
+        <td><span th:text="${human.getDescription()}"> </span></td>
+        <td><span th:text="${human.getAddress()}"> </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

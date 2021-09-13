@@ -1,14 +1,10 @@
-import DAO.peopleDAO;
-import DAO.marriageDAO;
-
-import entities.people;
-import entities.marriage;
-
-import java.util.List;
-
+import javax.xml.crypto.Data;
 
 public class Main {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        Data d1 = null;
+        Data d2 = null;
+        System.out.println(d1.equals(d2));
     }
 }

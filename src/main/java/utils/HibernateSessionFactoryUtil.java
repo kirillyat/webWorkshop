@@ -1,9 +1,9 @@
 package utils;
 
-import entities.people;
-import entities.marriage;
+import dataAccess.client.Client;
 
-
+import dataAccess.film.Film;
+import dataAccess.order.Order;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -15,21 +15,18 @@ public class HibernateSessionFactoryUtil {
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
-            try {
-                Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(people.class);
-                configuration.addAnnotatedClass(marriage.class);
-                StandardServiceRegistryBuilder builder =
-                        new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-                sessionFactory = configuration.buildSessionFactory(builder.build());
-
-            } catch (Exception e) {
-                System.out.println("EXCEPTION: " + e);
-            }
+            Configuration configuration = new Configuration().configure();
+            configuration.addAnnotatedClass(Client.class);
+            configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(Film.class);
+            StandardServiceRegistryBuilder builder =
+                    new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+            sessionFactory = configuration.buildSessionFactory(builder.build());
         }
         if (sessionFactory == null){
-            System.err.println("WARNING sessionFactory == null");
+            throw new RuntimeException("sessionFactory did not initialized");
         }
         return sessionFactory;
     }
 }
+

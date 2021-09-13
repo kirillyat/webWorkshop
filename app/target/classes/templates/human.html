@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Human page</title>
+</head>
+<body>
+<p><a href="/">Main Page</a></p>
+<p><a href="/peopleList">People</a></p>
+<div id="humanInfo_text">
+    <p th:text="'Human id: ' + ${human.getId()}"></p>
+    <p th:text="'Human name: ' + ${human.getName()}"></p>
+    <p th:text="'Birth date: ' + ${human.getBirth_date()}"></p>
+    <p th:text="'Death date: ' + ${human.getDeath_date()}"></p>
+    <p th:text="'Address: ' + ${human.getAddress()}"></p>
+    <p th:text="'Description: ' + ${human.getDescription()}"></p>
+
+    <a th:href="'/human?id= ' + ${human.getMother_id()}">
+    <p th:text="'Mother: ' + ${human.getMother_id()}"></p></a>
+
+    <a th:href="'/human?id=' + ${human.getFather_id()}">
+    <p th:text="'Father: '+ ${human.getFather_id()}"></p></a>
+
+</div>
+<form method="post" action="/humanAdd">
+    <input type="hidden" name="id" th:value="${human.getId()}"/>
+    <button id="edit_button" type="submit">Edit human</button>
+</form>
+
+<form method="post" action="/humanDelete">
+    <input type="hidden" name="id" th:value="${human.getId()}"/>
+    <button id="delete_button" type="submit">Delete client</button>
+</form>
+
+</body>
+</html>

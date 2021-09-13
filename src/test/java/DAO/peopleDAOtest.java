@@ -13,7 +13,7 @@ public class peopleDAOtest {
         people human = new people();
         peopleDAO humanDAO = new peopleDAO();
 
-        human.set_name("Test humah dfksz");
+        human.set_name("Test");
         humanDAO.save(human);
         /*
          * Checking save function
