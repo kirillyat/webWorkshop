@@ -15,13 +15,13 @@ public class marrige {
 
     public marrige() {}
 
-    public marrige(int id,
+    public marrige(
                    int wife_id,
                    int husband_id,
                   Date marriage_date,
                   Date divorce_date)
     {
-        this.id = id;
+
         this.wife_id = wife_id;
         this.husband_id = husband_id;
         this.marriage_date = marriage_date;

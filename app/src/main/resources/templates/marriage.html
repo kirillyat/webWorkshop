@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>marriage</title>
+    <title>Marriage page</title>
 </head>
 <body>
 <p><a href="/">Main Page</a></p>
 
 <p><a href="/marriages">Marriges</a></p>
 
-<div id="humanInfo_text">
+<div id="marriageInfo_text">
     <p th:text="'ID : ' + ${marriage.getId()}"></p>
     <p th:text="'WIFE ID: ' + ${marriage.getWife_id()}"></p>
     <p th:text="'HUSBAND ID : ' + ${marriage.getHusband_id()}"></p>
