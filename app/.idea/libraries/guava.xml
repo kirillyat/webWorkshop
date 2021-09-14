@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="org.testng:testng:7.1.0" type="repository">
+  <library name="guava" type="repository">
     <properties maven-id="org.testng:testng:7.1.0" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/testng-7.1.0.jar!/" />

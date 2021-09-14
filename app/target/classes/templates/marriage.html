@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>marriage</title>
+</head>
+<body>
+<p><a href="/">Main Page</a></p>
+
+<p><a href="/marriages">Marriges</a></p>
+
+<div id="humanInfo_text">
+    <p th:text="'ID : ' + ${marriage.getId()}"></p>
+    <p th:text="'WIFE ID: ' + ${marriage.getWife_id()}"></p>
+    <p th:text="'HUSBAND ID : ' + ${marriage.getHusband_id()}"></p>
+    <p th:text="'MARRIAGE DATE: ' + ${marriage.getMarriage_date()}"></p>
+    <p th:text="'DIVORCE DATE: ' + ${marriage.getDivorce_date()}"></p>
+
+</div>
+<form method="post" action="/marriageAdd">
+    <input type="hidden" name="id" th:value="${marriage.getId()}"/>
+    <button id="edit_button" type="submit">Edit Marriage</button>
+</form>
+
+<form method="post" action="/marriageDelete">
+    <input type="hidden" name="id" th:value="${marriage.getId()}"/>
+    <button id="delete_button" type="submit">Delete marriage</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marriages</title>
+    <style>
+        body{
+            background-color: #3366CC;
+        }
+    </style>
+</head>
+<body>
+
+<p><a href="/">Main Page</a></p>
+<form method="post" action="/marriageAdd">
+    <button id="marriageAdd_button" type="submit">Add marriage</button>
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+        <th scope="col"> ID </th>
+        <th scope="col"> WIFE ID </th>
+        <th scope="col"> HUSBAND ID </th>
+        <th scope="col"> MARRIAGE DATE </th>
+        <th scope="col"> DIVORCE DATE </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="marriage: ${marriages}">
+        <td><a th:href="'/marriage?id=' + ${marriage.getId()}"> <span
+                th:text="${marriage.getId()}"> </span> </a></td>
+
+        <td><a th:href="'/human?id=' + ${marriage.getWife_id()}">
+            <span th:text="${marriage.getWife_id()}"> </span></a></td>
+
+        <td><a th:href="'/human?id=' + ${marriage.getWife_id()}">
+            <span th:text="${marriage.getHusband_id()}"> </span></a></td>
+
+        <td><span th:text="${marriage.getMarriage_date()}"> </span></td>
+        <td><span th:text="${marriage.getDivorce_date()}"> </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

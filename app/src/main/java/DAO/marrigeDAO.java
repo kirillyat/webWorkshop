@@ -60,5 +60,4 @@ public class marrigeDAO {
         return data;
     }
 
-
 }

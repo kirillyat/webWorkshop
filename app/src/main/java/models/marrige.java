@@ -41,7 +41,7 @@ public class marrige {
     public int getHusband_id() {return husband_id;}
     public void setHusband_id(int husband_id) {this.husband_id = husband_id;}
 
-    @Column(name = "marriage_date")
+    @Column(name = "marrige_date")
     public Date getMarriage_date() {return marriage_date;}
     public void setMarriage_date(Date marriage_date) {this.marriage_date = marriage_date;}
 
